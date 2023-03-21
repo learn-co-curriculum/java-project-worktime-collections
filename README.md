@@ -17,12 +17,12 @@ we have learned about more data structures, let's replace the array with a
 elements to it, we won't be restricted by how many concerts we could have!
 
 1. Modify the `ConcertRepository` class.
-    1. Replace the array of `Concert` objects with a `List` of `Concert` objects.
-    2. Make the appropriate adjustments.
-    3. Remove the instance variable `currentSize`.
-    4. Remove the method `getCurrentSize()`.
-    5. Create a method called `getAllConcerts()` that takes no parameters and
-       returns the `List` of `Concert` objects.
+   1. Replace the array of `Concert` objects with a `List` of `Concert` objects.
+   2. Make the appropriate adjustments.
+   3. Remove the instance variable `currentSize`.
+   4. Remove the method `getCurrentSize()`.
+   5. Create a method called `getAllConcerts()` that takes no parameters and
+      returns the `List` of `Concert` objects.
 2. Modify the `ConcertService` appropriately given the changes made to the
    `ConcertRepository` class.
 3. Modify the following unit tests below and ensure the tests all pass.
@@ -89,13 +89,13 @@ class ConcertRepositoryTest {
     @Test
     void getConcertState() {
         // add 3 concerts
-        assertTrue(repository.add(new Concert("The Weekend", 1000)));
+        assertTrue(repository.add(new Concert("The Weeknd", 1000)));
         assertTrue(repository.add(new Concert("Taylor Swift", 500)));
         assertTrue(repository.add(new Concert("Harry Styles", 20000)));
         assertEquals(3, repository.getAllConcerts().size());
 
         // confirm each concert was inserted in the correct array position
-        assertEquals("The Weekend", repository.get(0).getPerformer());
+        assertEquals("The Weeknd", repository.get(0).getPerformer());
         assertEquals("Taylor Swift", repository.get(1).getPerformer());
         assertEquals("Harry Styles", repository.get(2).getPerformer());
     }
@@ -115,15 +115,15 @@ class ConcertRepositoryTest {
     @Test
     void findByPerformer() {
         repository.add(new Concert("Taylor Swift", 1000));
-        repository.add(new Concert("The Weekend", 500));
+        repository.add(new Concert("The Weeknd", 500));
 
         Concert c1 = repository.findByPerformer("Taylor Swift");
         assertEquals("Taylor Swift", c1.getPerformer());
         assertEquals(1000, c1.getAvailable());
         assertEquals(0, c1.getWaitlist());
 
-        Concert c2 = repository.findByPerformer("The Weekend");
-        assertEquals("The Weekend", c2.getPerformer());
+        Concert c2 = repository.findByPerformer("The Weeknd");
+        assertEquals("The Weeknd", c2.getPerformer());
         assertEquals(500, c2.getAvailable());
         assertEquals(0, c2.getWaitlist());
 
@@ -136,7 +136,7 @@ class ConcertRepositoryTest {
     @Test
     void caseInsensitiveFind() {
         repository.add(new Concert("Taylor Swift", 1000));
-        repository.add(new Concert("The Weekend", 500));
+        repository.add(new Concert("The Weeknd", 500));
 
         Concert c1 = repository.findByPerformer("TAYLOR swift");
         assertEquals("Taylor Swift", c1.getPerformer());
@@ -194,12 +194,12 @@ class ConcertServiceTest {
     @Test
     void displayNonEmpty() {
         concertService.addConcert("Taylor Swift" , 100);
-        concertService.addConcert("The Weekend", 5000);
+        concertService.addConcert("The Weeknd", 5000);
         concertService.displayConcerts();
         assertEquals("Added concert\n" +
                      "Added concert\n" +
                      "Concert{performer='Taylor Swift', available=100, waitlist=0}\n" +
-                     "Concert{performer='The Weekend', available=5000, waitlist=0}",
+                     "Concert{performer='The Weeknd', available=5000, waitlist=0}",
                      outputStreamCaptor.toString().trim());
     }
 
@@ -233,10 +233,10 @@ class ConcertServiceTest {
     @Test
     void addToWaitlist() {
         concertService.addConcert("Taylor Swift" , 100);
-        concertService.addConcert("The Weekend", 5000);
+        concertService.addConcert("The Weeknd", 5000);
         concertService.addToWaitlist("Taylor Swift");
         concertService.addToWaitlist("Taylor Swift");
-        concertService.addToWaitlist("The Weekend");
+        concertService.addToWaitlist("The Weeknd");
         // no concert
         concertService.addToWaitlist("Unknown Singer");
 
