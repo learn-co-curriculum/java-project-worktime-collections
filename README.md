@@ -16,16 +16,19 @@ we have learned about more data structures, let's replace the array with a
 `List`. Since a `List` is dynamically sized, as in we can continue to add
 elements to it, we won't be restricted by how many concerts we could have!
 
-1. Modify the `ConcertRepository` class.
-   1. Replace the array of `Concert` objects with a `List` of `Concert` objects.
-   2. Make the appropriate adjustments.
-   3. Remove the instance variable `currentSize`.
-   4. Remove the method `getCurrentSize()`.
-   5. Create a method called `getAllConcerts()` that takes no parameters and
-      returns the `List` of `Concert` objects.
-2. Modify the `ConcertService` appropriately given the changes made to the
-   `ConcertRepository` class.
-3. Modify the following unit tests below and ensure the tests all pass.
+Modify the `ConcertRepository` class.
+
+- Replace the array of `Concert` objects with a `List` of `Concert` objects.
+- Make the appropriate adjustments.
+- Remove the instance variable `currentSize`.
+- Remove the method `getCurrentSize()`.
+- Create a method called `getAllConcerts()` that takes no parameters and
+  returns the `List` of `Concert` objects.
+
+Modify the `ConcertService` appropriately given the changes made to the
+`ConcertRepository` class.
+
+Modify the following unit tests below and ensure the tests all pass.
 
 Update the `ConcertRepositoryTest`:
 
