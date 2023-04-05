@@ -19,6 +19,7 @@ elements to it, we won't be restricted by how many concerts we could have!
 Modify the `ConcertRepository` class.
 
 - Replace the array of `Concert` objects with a `List` of `Concert` objects.
+  - Hint: Remember to instantiate it as an `ArrayList`.
 - Make the appropriate adjustments.
 - Remove the instance variable `currentSize`.
 - Remove the method `getCurrentSize()`.
